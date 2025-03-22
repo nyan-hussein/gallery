@@ -1,15 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mihran gallery</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav>
-      <h1>help</h1>
-    </nav>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mihran Gallery</title>
+<!-- tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- js to red image exif -->
+  <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="im/moon_square.png" type="image/x-icon" />
+  <!-- css -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="font-sans">
+  <!-- Header Section -->
+  <header class="bg-white py-2 border-b border-gray-100">
+    <div class="container flex-col mx-auto flex items-center">
+      <h1 class="lg:text-3xl flex text-2xl m-12 font-sans font-bold uppercase text-white animate-text">
+        mihran &nbsp; Hydayat
+      </h1>
+      <nav class="margin-top: 10px">
+        <ul class="flex flex-row space-x-5">
+          <li><a href="#home" class="text-white font-bold">Home</a></li>
+          <li><a href="#gallery" class="text-white font-bold">Gallery</a></li>
+          <li><a href="#about" class="text-white font-bold">About</a></li>
+          <li><a href="#contact" class="text-white font-bold">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="w-full py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-between items-center gap-10">
+        <!-- Text Section -->
+        <div class="flex-1 max-w-md">
+          <h2 class="text-3xl font-bold text-gray-800 mb-5">
+            Welcome to My Photography Gallery
+          </h2>
+          <p class="text-lg text-gray-600">
+            hiii, im a hobbiest photographer and i hope you enjoy watching my
+            gallery and it brings u joy
+          </p>
+        </div>
+        <!-- Image Section (5 Pictures) -->
+
+          <div class="flex fade-effect slider overflow-hidden gap-2 w-full md:w-3/5">
+            <div class=" w-full  h-64 slides rounded-lg shadow-md ">
+              <img src="im/LongExp_compressed.jpg" alt="Photo 1" class="w-full h-full object-cover" />
+            </div>
+            <div style="width: 200%;" class="w-full  h-64 slides rounded-lg shadow-md">
+              <img src="im/Favpic_compressed.jpg" alt="Photo 2" class="w-full h-full object-cover" />
+            </div>
+            <div class="w-full h-64 slides rounded-lg shadow-md">
+              <img src="im/Halabja (3)_compressed.jpg" alt="Photo 3" loading="lazy"class="w-full h-full object-cover" />
+            </div>
+            <div class="w-full hidden h-64 slides rounded-lg shadow-md">
+              <img src="im/Longedp2_compressed.jpg" alt="Photo 4" class="w-full h-full object-cover" />
+            </div>
+            <div class="w-full hidden h-64 slides rounded-lg shadow-md">
+              <img src="im/Sirwanbird_compressed.jpg" alt="Photo 5" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">Gallery</h2>
+      <div id="imges" class="grid grid-cols-3 md:grid-cols-4 gap-2 lg:grid-cols-6 lg:gap-5">
+        <!-- images -->
+        <div class="relative overflow-hidden rounded-lg shadow-md" onclick="openModal('1')">
+          <img src="l-im/1.jpg" id="image_1" alt="Photo 1" class="w-full h-full object-cover transition-transform" />
+        </div>
+        <!-- end of repetaiiton -->
+      </div>
+    </div>
+  </section>
+  <!-- image popup -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center hidden justify-center">
+      <div  id="modalBody" class="bg-white rounded h-3/4 p-4 max-w-3xl w-full flex flex-col md:flex-row">
+        <div class="relative h-full md:w-3/4 overflow-hidden rounded-lg shadow-md">
+          <img id="imageM" src="" alt="Photo 1" class="object-cover h-full w-auto flex justify-self-center transition-transform" />
+        </div>
+        <div class="p-4 md:w-1/3">
+          <p id="imageInfo" class="text-gray-700">Loading metadata...</p>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- About Section -->
+  <section id="about" class="py-12">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+      <div class="flex-1 max-w-sm">
+        <img src="im/29.jpg" alt="About Me" class="w-full rounded-lg shadow-md">
+      </div>
+      <div class="flex-1 text-left">
+        <h2 class="text-3xl font-bold text-gray-800 mb-5">About Me</h2>
+        <p class="text-lg text-gray-600">
+          Hi, I'm Mihran, known as Miran. I'm a 19-year-old guy based in
+          Halabja/Sulaymaniyah. I'm currently studying IT at the Polytechnic
+          University of Sulaymaniyah and am in my second year. I'm a 3D artist
+          and a hobbyist photographer. I've been doing photography for as long
+          as I can remember, mostly street, wildlife, and nature photography.
+          I'm also a portrait photographer(forcefully), and I use a Sony a6000
+          with a 20mm f/2.8 and a Sony 55-210mm f/4.5-6.3 lens. However, most
+          of the photos you see were taken with my phone. I hope my work
+          inspires you and gives you some ideas about this world.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 ">Contact</h2>
+      <p class="text-lg text-gray-600">contact me for cool colabrations</p>
+      <div class="lg:flex-row lg:justify-center lg:gap-7 md:flex-row md:justify-center md:gap-7 flex flex-col items-center gap-2 mt-6">
+      <a href="https://www.instagram.com/miry.jpeg" class=" inline-flex items-center gap-2"><img src="im/instagram.svg" class="h-5 w-5"><span>my page</span></a>
+      <a href="https://www.instagram.com/miry_h_n" class="inline-flex items-center gap-2"><img src="im/instagram.svg" class="h-5 w-5"><span>personal account</span></a>
+      <a href="https://t.me/Mrnhyt3" class="inline-flex items-center gap-2"><img src="im/telegram.svg" class="h-5 w-5 "><span>telegram</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 py-5">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-white">
+        &copy; 2025 - MiryJPEG Gallery. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
 </html>

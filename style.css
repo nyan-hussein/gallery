@@ -1,6 +1,70 @@
-nav {
-  background-image: url(bg.jpg);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
+    url("im/bg.jpg");
   background-size: cover;
   background-position: center;
-  height: 40vh;
+  backdrop-filter: blur(5px);
+}
+
+.slides {
+  transition: opacity 0.8s ease-in, transform 1s ease-in-out;
+  opacity: 0;
+}
+
+#modalBody{
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+}
+#modalBody.open{
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+header h1 {
+  text-shadow: 2px 2px 4px #000000;
+}
+.font {
+  font-family: "Boldonse", sans-serif;
+  font-display: swap;
+}
+.font:before {
+  display: none;
+}
+.animate-text::before {
+  display: none;
+}
+
+.animate-text span {
+  display: inline-block;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 1s forwards;
+  animation-delay: calc(0.2s * var(--letter));
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.fade-effect {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  }
+
+@media screen and (max-width: 400px) {
+  header nav ul li {
+    font-size: small;
+  }
 }
