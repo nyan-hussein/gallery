@@ -1,6 +1,9 @@
+//ur image number
+const imageNumber = 37;
+
 //displaying all the images
 const imges = document.getElementById("imges"); 
-for (let i = 1; i <= 37; i++) {
+for (let i = 1; i <= imageNumber; i++) {
   const div = document.createElement("div");
   div.className = "relative overflow-hidden rounded-lg cursor-pointer shadow-md";
   div.id = `${i}`;
