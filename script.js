@@ -1,5 +1,5 @@
 //ur image number
-const imageNumber = 37;
+const imageNumber = 42;
 
 //displaying all the images
 const imges = document.getElementById("imges"); 
